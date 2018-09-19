@@ -1,0 +1,14 @@
+<p>This Works..!</p>
+<ul class="list-group">
+  <li *ngFor="let user of users" class="list-group-item">
+    {{user.userName}}
+ 
+ <ul>
+   <li> {{user.userId}}</li>
+   <li> {{user.userEmail}}</li>
+   <li> {{user.password}}</li>
+   <li> {{user.userDesignation}}</li>
+   <li> {{user.userPhoneNo}}</li>
+ </ul>
+</li>
+</ul>

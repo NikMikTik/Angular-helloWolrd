@@ -1,0 +1,77 @@
+<br>
+<br>
+<img src="assets/img/plus-business@2x.png" class="plus_business">
+<br>
+<div class="Welcome-to-Plus-Eng">
+  Welcome to Plus! Engage
+</div>
+
+<br>
+<br>
+
+<mat-card>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label class="title">Email</mat-label>
+      <input matInput placeholder="name.company.com" required formControlName="email">
+      <div *ngIf="email.pending" class="alert alert-danger">Checking Email Format...</div>
+
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors.required">
+          Email is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="email.errors.email">
+          Enter
+          <strong>valid</strong> Email
+        </div>
+        <div *ngIf="email.errors.shouldContainAt">
+          Email should contain
+          <strong>@</strong>
+        </div>
+        <div *ngIf="email.errors.cannotContainSpace">
+          Email cannot have any
+          <strong>Space</strong>
+        </div>
+
+
+      </div>
+
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Enter your Password" required formControlName="pwd">
+
+      <div class="alert alert-danger" *ngIf="pwd.touched && pwd.invalid">
+        <div *ngIf="pwd.errors.required">
+          Password is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="pwd.errors.cannotContainSpace">
+          Password cannot have any
+          <strong>Space</strong>
+        </div>
+        <div *ngIf="pwd.errors.minlength">
+          Password should be
+          <strong>minimum {{pwd.errors.minlength.requiredLength}}</strong> characters
+        </div>
+      </div>
+
+    </mat-form-field>
+    <button [routerLink]="['/Dashboard']" mat-flat-button color="primary" class="mask Button-Text" [disabled]="email.pending || form.invalid">Login
+
+    </button>
+  </form>
+  <div class="Forgot-password">
+    Forgot password?
+  </div>
+
+
+
+</mat-card>
+
+<br>
+<br>
+<img src="assets/img/login-1440-px@2x.png" class="login-1024px">

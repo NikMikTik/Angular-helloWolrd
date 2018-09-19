@@ -1,0 +1,114 @@
+
+  .mat-label {
+    width: 62px;
+    height: 20px;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #2d485f;
+   
+  }
+
+  .mat-card
+  { width: 300px;
+    height: 250px; 
+    border: 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .Welcome-to-Plus-Eng {
+    width: 350px;
+    height: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2d485f;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .plus_business {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 248px;
+    height: 53.5px;
+    object-fit: contain;
+  }
+
+  .Forgot-password {
+    width: 127px;
+    height: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #1d35df;
+    float: left;
+  }
+
+  .mask {
+  width: 100px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #1d35df;
+  float: right;         
+    }
+
+
+    mat-form-field.mat-form-field {
+      width: 290px;
+      font-size: 16px;
+    
+    }
+
+    .login-1024px {
+      width: 1350px;
+      height: 110px;
+      position:fixed;
+      bottom:0px;
+     
+    }
+
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }
+
+    .Button-Text {
+
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .alert-danger{
+      padding-top: 5px;
+      font-size: 12px;
+    }
