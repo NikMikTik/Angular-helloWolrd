@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
@@ -29,13 +28,16 @@ import { LoginReactiveFormComponent } from './login-reactive-form/login-reactive
 import { HttpLoginComponent } from './http-login/http-login.component';
 import { ErrorHandler } from '@angular/core';
 import { AppErrorhandler } from 'src/app/common/app-error-handler';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginReactiveFormComponent,
-    HttpLoginComponent
+    HttpLoginComponent,
+    WelcomeComponent
   ],
   imports: [
     MatCheckboxModule,
@@ -57,7 +59,11 @@ import { AppErrorhandler } from 'src/app/common/app-error-handler';
     MatOptionModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { path: 'login', component: HttpLoginComponent },
+      { path: '', component: WelcomeComponent }
+    ])
   ],
   exports: [
     MatCheckboxModule,
@@ -79,7 +85,7 @@ import { AppErrorhandler } from 'src/app/common/app-error-handler';
   providers: [
     LoginService,
     ErrorStateMatcher,
-  {provide:ErrorHandler,useClass:AppErrorhandler}],
+    { provide: ErrorHandler, useClass: AppErrorhandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

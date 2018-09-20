@@ -1,14 +1,83 @@
-<p>This Works..!</p>
-<ul class="list-group">
-  <li *ngFor="let user of users" class="list-group-item">
-    {{user.userName}}
- 
- <ul>
-   <li> {{user.userId}}</li>
-   <li> {{user.userEmail}}</li>
-   <li> {{user.password}}</li>
-   <li> {{user.userDesignation}}</li>
-   <li> {{user.userPhoneNo}}</li>
- </ul>
-</li>
-</ul>
+<br>
+<br>
+<img src="assets/img/plus-business@2x.png" class="plus_business">
+<br>
+<div class="Welcome-to-Plus-Eng">
+  Welcome to Plus! Engage
+</div>
+
+<br>
+<br>
+
+<mat-card>
+  <form (ngSubmit)="signIn(form)" [formGroup]="form">
+    <div *ngIf="invalidLogin" class="invalidLogin"><strong>Invalid Email/Password...</strong></div>
+    <mat-form-field appearance="outline">
+      <mat-label class="title">Email</mat-label>
+      <input matInput placeholder="name.company.com" required formControlName="userEmail">
+      <div *ngIf="userEmail.pending" class="alert alert-danger">Checking Email Format...</div>
+
+      <div class="alert alert-danger" *ngIf="userEmail.touched && userEmail.invalid">
+        <div *ngIf="userEmail.errors.required">
+          Email is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="userEmail.errors.email">
+          Enter
+          <strong>valid</strong> Email
+        </div>
+        <div *ngIf="userEmail.errors.shouldContainAt">
+          Email should contain
+          <strong>@</strong>
+        </div>
+        <div *ngIf="userEmail.errors.cannotContainSpace">
+          Email cannot have any
+          <strong>Space</strong>
+        </div>
+
+
+      </div>
+
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Enter your Password" required formControlName="password">
+
+      <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+        <div *ngIf="password.errors.required">
+          Password is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="password.errors.cannotContainSpace">
+          Password cannot have any
+          <strong>Space</strong>
+        </div>
+        <div *ngIf="password.errors.pattern">
+          Password must contain
+          <strong>1 Uppercase, 1 Lowercase, 1 Numeric and 1 Special Character</strong>
+        </div>
+        <div *ngIf="password.errors.minlength">
+          Password should be
+          <strong>minimum {{password.errors.minlength.requiredLength}}</strong> characters
+        </div>
+      </div>
+
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="mask Button-Text" 
+    [disabled]="userEmail.pending || form.invalid" type="submit">
+      Login
+    </button>
+  </form>
+  <div class="Forgot-password">
+    Forgot password?
+  </div>
+
+
+
+</mat-card>
+
+<br>
+<br>
+<img src="assets/img/login-1440-px@2x.png" class="login-1024px">
