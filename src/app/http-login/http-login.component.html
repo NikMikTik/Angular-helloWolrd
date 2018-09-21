@@ -11,6 +11,7 @@
 
 <mat-card>
   <form (ngSubmit)="signIn(form)" [formGroup]="form">
+    <div *ngIf="nonExistentUser" class="invalidLogin"><strong>Please Register yourself first...</strong></div>
     <div *ngIf="invalidLogin" class="invalidLogin"><strong>Invalid Email/Password...</strong></div>
     <mat-form-field appearance="outline">
       <mat-label class="title">Email</mat-label>
@@ -70,9 +71,8 @@
       Login
     </button>
   </form>
-  <div class="Forgot-password">
-    Forgot password?
-  </div>
+  <a routerLink="/forgotPwd" routerLinkActive="active" class="Forgot-password">Forgot password?</a>
+  
 
 
 

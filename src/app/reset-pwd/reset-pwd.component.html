@@ -1,0 +1,65 @@
+<br>
+<br>
+<img src="assets/img/plus-business@2x.png" class="plus_business">
+<br>
+<div class="Reset-your-password">
+    Reset your password
+</div>
+
+<br>
+<div class="Create-a-strong-pass">
+Create a strong password with a minimum of 8 characters,
+one uppercase letter, one lowercase letter , one digit and one special character
+</div>
+<br>
+
+<mat-card>
+  <form (ngSubmit)="resetPwd(resetPwdForm)" [formGroup]="resetPwdForm">
+    <mat-form-field appearance="outline">
+      <mat-label class="title">Password</mat-label>
+      <input matInput placeholder="Enter Your Password" required formControlName="password">
+      <div *ngIf="password.pending" class="alert alert-danger">Checking Password Format...</div>
+
+      <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+        <div *ngIf="password.errors.required">
+          Password is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="password.errors.cannotContainSpace">
+          Passsword cannot have any
+          <strong>Space</strong>
+        </div>
+
+
+      </div>
+
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input type="confirmPassword" matInput placeholder="Enter your Password Again" required formControlName="confirmPassword">
+
+      <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+        <div *ngIf="confirmPassword.errors.required">
+            Confirm Password is
+          <strong>required</strong>
+        </div>
+       
+      </div>
+
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="mask Button-Text" 
+    [disabled]="password.pending || confirmPassword.pending || resetPwdForm.invalid" type="submit">
+      Reset
+    </button>
+  </form>
+  
+
+
+
+</mat-card>
+
+<br>
+<br>
+<img src="assets/img/login-1440-px@2x.png" class="login-1024px">

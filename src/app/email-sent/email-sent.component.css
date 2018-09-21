@@ -1,0 +1,54 @@
+
+
+  .mask {
+    width: 80px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #1d35df;
+    margin-left: 630px;
+    margin-right: auto; 
+  }
+  .Button-Text {
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: #ffffff;
+        
+        }
+
+  .Weve-sent-you-an-em {
+    width: 500px;
+    height: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #636363;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .plus_business {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 248px;
+    height: 53.5px;
+    object-fit: contain;
+  }
+ 
+  .login-1024px {
+    width: 1350px;
+    height: 110px;
+    position:fixed;
+    bottom:0px;
+   
+  }

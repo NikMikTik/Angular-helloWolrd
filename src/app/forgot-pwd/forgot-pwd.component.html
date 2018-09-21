@@ -1,0 +1,58 @@
+<br>
+<br>
+<img src="assets/img/plus-business@2x.png" class="plus_business">
+<br>
+<div class="Forgot-password">
+  Forgot password
+</div>
+
+<br>
+<div class="Let-us-send-you-a-li">Let us send you a link to reset your password</div>
+<br>
+
+<mat-card>
+  <form (ngSubmit)="forgotPwd(forgotForm)" [formGroup]="forgotForm">
+    <div *ngIf="nonExistentUser" class="invalidLogin">
+      <strong>Please Register yourself first...</strong>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label class="title">Email</mat-label>
+      <input matInput placeholder="name.company.com" required formControlName="userEmail">
+      <div *ngIf="userEmail.pending" class="alert alert-danger">Checking Email Format...</div>
+
+      <div class="alert alert-danger" *ngIf="userEmail.touched && userEmail.invalid">
+        <div *ngIf="userEmail.errors.required">
+          Email is
+          <strong>required</strong>
+        </div>
+        <div *ngIf="userEmail.errors.email">
+          Enter
+          <strong>valid</strong> Email
+        </div>
+        <div *ngIf="userEmail.errors.shouldContainAt">
+          Email should contain
+          <strong>@</strong>
+        </div>
+        <div *ngIf="userEmail.errors.cannotContainSpace">
+          Email cannot have any
+          <strong>Space</strong>
+        </div>
+
+
+      </div>
+
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="mask Button-Text" [disabled]="userEmail.pending || forgotPwd.invalid" type="submit">
+      Send
+    </button>
+  </form>
+  <a routerLink="/login" routerLinkActive="active" class="Back-to-login">Back to login</a>
+
+
+
+
+</mat-card>
+
+<br>
+<br>
+<img src="assets/img/login-1440-px@2x.png" class="login-1024px">

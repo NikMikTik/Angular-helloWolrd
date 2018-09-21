@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class HttpLoginComponent {
   //-------------------------------DECLARATIONS----------------------------------
   invalidLogin: boolean;
+  nonExistentUser: boolean;
   //-----------------------FORM VALIDATION---------------------------------
   form = new FormGroup({
     userEmail: new FormControl('', [Validators.required,
@@ -40,7 +41,7 @@ export class HttpLoginComponent {
 
   //-------------------------------CONSTRUCTOR----------------------------------
 
-  constructor(private router: Router, private loginService: LoginService) {
+  constructor(private router:Router, private loginService: LoginService) {
 
   }
 
@@ -55,10 +56,18 @@ export class HttpLoginComponent {
         if (result['code'] === 200) {
           console.log(result['token']);
           this.invalidLogin = false;
-          this.router.navigate(['/allUsers'])
+          this.nonExistentUser = false;
+          this.router.navigate(['welcome']);
+        }
+        else if (result['code'] === 403) {
+          this.nonExistentUser = true;
+          this.invalidLogin = false;
+          
         }
         else {
           this.invalidLogin = true;
+          this.nonExistentUser = false;
+
         }
       }, (error: Response) => {
         if (error)

@@ -24,18 +24,29 @@ export class DataService {
       .map(response => {
         let result = response.json();
         return result;
-        
-        // if (result.code === 200) {
-        //   return result;
-        // }
-        // else {
-        //   return result;
-        // }
       })
       .catch(this.handleError);
   }
 
+  forgotPwd(userEmail) {
+    console.log(userEmail);
+    return this.http.post(this.url, JSON.stringify(userEmail), options)
+      .map(response => {
+        let result = response.json();
+        return result;
+      }).catch(this.handleError);
 
+  }
+
+
+  resetPwd(resetPwdForm){
+    console.log(resetPwdForm);
+    return this.http.get(this.url)
+      .map(response => {
+        let result = response.json();
+        return result;
+      }).catch(this.handleError);
+  }
   private handleError(error: Response) {
     return Observable.throw(new AppError(error));
 

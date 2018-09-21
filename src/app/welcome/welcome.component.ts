@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './../services/login.service';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+ 
 }
