@@ -21,5 +21,18 @@ export class FormValidators {
         });
     }
 
+    static MatchPassword(control: AbstractControl) {
+        console.log(control.get('password').value);
+        let password = control.get('password').value; // to get value in input tag
+        let confirmPassword = control.get('confirmPassword').value; // to get value in input tag
+         if(password != confirmPassword) {
+             console.log('false');
+             return {MatchPassword: true};
+         } else {
+             console.log('true');
+             return null
+         }
+     }
+
 
 } 

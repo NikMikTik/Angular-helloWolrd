@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { ForgotPwdService } from './services/forgot-pwd.service';
 import { ResetService } from './services/reset.service';
+import { AuthGuard } from './guard/authGuard';
+
+
 
 import {
   MatCheckboxModule,
@@ -37,6 +40,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ForgotPwdComponent } from './forgot-pwd/forgot-pwd.component';
 import { EmailSentComponent } from './email-sent/email-sent.component';
 import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
+import { ResetAuthComponent } from './reset-auth/reset-auth.component';
+import { PwdResetDoneComponent } from './pwd-reset-done/pwd-reset-done.component';
 
 @NgModule({
   declarations: [
@@ -48,10 +53,12 @@ import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
     NotFoundComponent,
     ForgotPwdComponent,
     EmailSentComponent,
-    ResetPwdComponent
+    ResetPwdComponent,
+    ResetAuthComponent,
+    PwdResetDoneComponent
   ],
   imports: [
-    MatCheckboxModule,
+MatCheckboxModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -72,13 +79,21 @@ import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path:'',component:HttpLoginComponent},
-      {path:'login',component:HttpLoginComponent},
-      {path:'welcome',component:WelcomeComponent},
-      {path:'forgotPwd',component:ForgotPwdComponent},   
-      {path:'emailSent',component:EmailSentComponent},   
-      {path:'resetPwd',component:ResetPwdComponent},   
-      {path:'**',component:NotFoundComponent}
+      { path: '', component: HttpLoginComponent },
+      { path: 'login', component: HttpLoginComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: 'forgotPwd', component: ForgotPwdComponent },
+      { path: 'emailSent', component: EmailSentComponent },
+      { path: 'resetPwd/:resetToken', component: ResetAuthComponent },
+      {
+        path: '',
+        redirectTo: '/resetPwd',
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+      },
+      { path: 'resetPwd', component: ResetPwdComponent },
+      { path: 'pwdResetDone', component: PwdResetDoneComponent },
+      { path: '**', component: NotFoundComponent }
     ]),
   ],
   exports: [
@@ -101,7 +116,7 @@ import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
   providers: [
     LoginService,
     ForgotPwdService,
-     ResetService,
+    ResetService,
     ErrorStateMatcher,
     { provide: ErrorHandler, useClass: AppErrorhandler }],
   bootstrap: [AppComponent]

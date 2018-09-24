@@ -7,11 +7,16 @@
 </div>
 
 <br>
+<form (ngSubmit)="emailSent(emailSentForm)" [formGroup]="emailSentForm">
+    <div *ngIf="mailCheckWarning" class="Weve-sent-you-an-em">
+        Kindly check your MailBox for further Instructions
+      </div>
+      <br>
   <button mat-flat-button color="primary" class="mask Button-Text"  type="submit">
     Ok
   </button>
 
-
+</form>
 
 <br>
 <br>

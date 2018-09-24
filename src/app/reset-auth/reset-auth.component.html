@@ -1,0 +1,37 @@
+<br>
+<br>
+<img src="assets/img/plus-business@2x.png" class="plus_business">
+<br>
+
+
+<br>
+<form (ngSubmit)="resetAuth(resetAuthForm)" [formGroup]="resetAuthForm">
+  <div *ngIf="resetPwdAccessDenied" class="Weve-sent-you-an-em">
+    This Request is Denied to you.
+    <br> Either You are not Authorized to reset Password or your Reset Password link Expired..
+  </div>
+  <div *ngIf="proceedToLogin" class="Back-to-login" >
+    <a routerLink="/login" routerLinkActive="active" class="Back-to-login">
+      <br>
+      <br>
+      <br>Proceed to Login <br>
+      <br>
+      <br>
+
+    </a><br>
+    <br>
+    <br>
+  </div>
+  <br>
+  <br>
+  <br>
+  <button mat-flat-button color="primary" class="mask Button-Text" type="submit">
+    Ok
+  </button>
+  <br>
+
+</form>
+
+<br>
+<br>
+<img src="assets/img/login-1440-px@2x.png" class="login-1024px">

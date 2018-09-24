@@ -3,24 +3,27 @@
 <img src="assets/img/plus-business@2x.png" class="plus_business">
 <br>
 <div class="Reset-your-password">
-    Reset your password
+  Reset your password
 </div>
 
 <br>
 <div class="Create-a-strong-pass">
-Create a strong password with a minimum of 8 characters,
-one uppercase letter, one lowercase letter , one digit and one special character
+  Create a strong password with a minimum of 8 characters, one uppercase letter, one lowercase letter , one digit and one special
+  character
 </div>
 <br>
 
 <mat-card>
   <form (ngSubmit)="resetPwd(resetPwdForm)" [formGroup]="resetPwdForm">
+    <div *ngIf="PwdNotMatching" class="invalidLogin">
+      <strong>Password and Confirm password must match...</strong>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label class="title">Password</mat-label>
-      <input matInput placeholder="Enter Your Password" required formControlName="password">
-      <div *ngIf="password.pending" class="alert alert-danger">Checking Password Format...</div>
+      <input matInput placeholder="Enter Your Password" required formControlName="password" type="password">
+      <div *ngIf="password?.pending" class="alert alert-danger">Checking Password Format...</div>
 
-      <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+      <div class="alert alert-danger" *ngIf="password?.touched && password.invalid">
         <div *ngIf="password.errors.required">
           Password is
           <strong>required</strong>
@@ -28,6 +31,17 @@ one uppercase letter, one lowercase letter , one digit and one special character
         <div *ngIf="password.errors.cannotContainSpace">
           Passsword cannot have any
           <strong>Space</strong>
+        </div>
+        <div *ngIf="password.errors.pattern">
+            Password must contain
+            <strong>1 Uppercase, 1 Lowercase, 1 Numeric and 1 Special Character</strong>
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password should be
+            <strong>minimum {{password.errors.minlength.requiredLength}}</strong> characters
+          </div>
+        <div *ngIf="password.errors.MatchPassword">
+          Password and Confirm password must match....
         </div>
 
 
@@ -38,23 +52,23 @@ one uppercase letter, one lowercase letter , one digit and one special character
 
     <mat-form-field appearance="outline">
       <mat-label>Confirm Password</mat-label>
-      <input type="confirmPassword" matInput placeholder="Enter your Password Again" required formControlName="confirmPassword">
+      <input type="confirmPassword" matInput type="password" placeholder="Enter your Password Again" required formControlName="confirmPassword">
 
-      <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+      <div class="alert alert-danger" *ngIf="confirmPassword?.touched && confirmPassword.invalid">
         <div *ngIf="confirmPassword.errors.required">
-            Confirm Password is
+          Confirm Password is
           <strong>required</strong>
         </div>
-       
+
       </div>
 
     </mat-form-field>
-    <button mat-flat-button color="primary" class="mask Button-Text" 
-    [disabled]="password.pending || confirmPassword.pending || resetPwdForm.invalid" type="submit">
+    <button mat-flat-button color="primary" class="mask Button-Text" [disabled]="password?.pending || confirmPassword?.pending || resetPwdForm.invalid"
+      type="submit">
       Reset
     </button>
   </form>
-  
+
 
 
 

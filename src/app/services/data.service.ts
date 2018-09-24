@@ -20,7 +20,7 @@ export class DataService {
 
   signIn(credentials) {
     console.log(credentials);
-    return this.http.post(this.url, JSON.stringify(credentials), options)
+    return this.http.post(this.url, JSON.stringify(credentials), options1)
       .map(response => {
         let result = response.json();
         return result;
@@ -30,7 +30,7 @@ export class DataService {
 
   forgotPwd(userEmail) {
     console.log(userEmail);
-    return this.http.post(this.url, JSON.stringify(userEmail), options)
+    return this.http.post(this.url, JSON.stringify(userEmail), options1)
       .map(response => {
         let result = response.json();
         return result;
@@ -41,12 +41,22 @@ export class DataService {
 
   resetPwd(resetPwdForm){
     console.log(resetPwdForm);
-    return this.http.get(this.url)
+    return this.http.post(this.url, JSON.stringify(resetPwdForm), options)
       .map(response => {
         let result = response.json();
         return result;
       }).catch(this.handleError);
   }
+
+getResetPwd(resetToken){
+  console.log(resetToken);
+  return this.http.get(this.url+'/'+resetToken)
+    .map(response => {
+      let result = response.json();
+      return result;
+    }).catch(this.handleError);
+}
+
   private handleError(error: Response) {
     return Observable.throw(new AppError(error));
 
@@ -58,9 +68,18 @@ export class DataService {
 
 
 
-
+  public getToken(): string {
+    return localStorage.getItem('resetToken');
+  }
 
 
 }
-let headers = new Headers({ 'Content-Type': 'application/json' });
+let headers = new Headers();
+headers.append('Content-Type', 'application/json');
+headers.append('Authorization', `${localStorage.getItem('resetToken')}`);
 let options = new RequestOptions({ headers: headers });
+
+
+let headers1 = new Headers();
+headers1.append('Content-Type', 'application/json');
+let options1 = new RequestOptions({ headers: headers });
