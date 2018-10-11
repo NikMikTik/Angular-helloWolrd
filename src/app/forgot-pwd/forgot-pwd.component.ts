@@ -31,17 +31,16 @@ export class ForgotPwdComponent {
 
 
     //-------------------------------CONSTRUCTOR----------------------------------
-  constructor(private router: Router, private forgotPwdService: ForgotPwdService) {
+  constructor(private router: Router, private forgotPwdService: ForgotPwdService ) {
 
   }
 
   //-------------------------------FORGOT PWD FUNCTION----------------------------------
 
   forgotPwd(forgotForm) {
-    console.log(forgotForm.value);
+ 
     this.forgotPwdService.forgotPwd(forgotForm.value).subscribe(result => {
       if (result['code'] === 200) {
-        console.log(result['token']);
         this.nonExistentUser = false;
         this.router.navigate(['emailSent']);
       }

@@ -1,0 +1,194 @@
+.bg {
+    width: 1350px;    height: 64px;
+    background-color: #1d17bf;
+  }
+
+  .waves {
+    width: 110px;
+    height: 64px;
+    object-fit: fill;
+    float: left;
+  }
+
+  .plus-logo-white {
+    width: 80px;
+    height: 45px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    object-fit: contain;
+    float: left
+  }
+
+  ::ng-deep .tab_one .mat-tab-label-content {
+    width: 85px;
+    height: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    align-self: center;
+    letter-spacing: normal;
+    color:white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+
+
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: rgb(243, 139, 101);
+    height: 4px;
+}
+
+
+::ng-deep .tab_one .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-link:not(.mat-tab-disabled):focus,
+.mat-tab-group.mat-primary .mat-tab-label-active {
+  color:white;
+    
+}
+.mat-card {
+    width: 800px;
+    height: 24px;
+    border-radius: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cmp_card{
+    width: 300px;
+    height: 60px;
+    border-radius: 2px;
+    margin-left: 100px;
+    margin-right: auto; 
+  }
+
+  .cmp_card_comms{
+    width: 300px;
+    height: 60px;
+    border-radius: 2px;
+    margin-left: 100px;
+    margin-right: auto;
+  }
+  .Campaign-details {
+    width: 336px;
+    height: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.09;
+    letter-spacing: normal;
+    color: #2d485f;
+  }
+
+  .same_margin  {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.title {
+    width: 200px;
+    height: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+   /* // font-weight: bold; */
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #2d485f;
+  }
+
+ .form-field{
+     width:420px;
+ }
+ .Rectangle {
+    
+    width: 1350px; 
+    height: 80px;
+    background-color: white;
+    position:fixed;
+    bottom:0px;
+     /* border-top:1px solid grey ; */
+    
+  }
+ .maskb {
+    width: 160px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #1d35df;
+    float: right;
+   margin-right: 600px;
+   border:15px solid white;
+      }
+.Button-Text {
+        
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              font-size: 16px;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: #ffffff;
+              
+            }
+
+
+            .Exit {
+                width: 29px;
+                height: 19px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: center;
+                color: #1d35df;
+                float: right;
+                margin-right: 50px;
+                padding-top: 20px;
+              }
+
+              .Rectangle-4 {
+                width: 564px;
+                height: 70px;
+                border-radius: 3px;
+                background-color: #ffffff;
+                box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.05);
+              }
+              .Campaign {
+                width: 72px;
+                height: 20px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                color: #2d485f;
+                float: left
+              }
+
+              .Courts-Singapore-Co {
+                width: 200px;
+                height: 75px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                color: #636363;
+                border-left:0px double grey;
+                float: right;
+                border-spacing:  10px;
+          
+              }

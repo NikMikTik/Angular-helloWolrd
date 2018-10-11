@@ -16,14 +16,13 @@ export class ResetAuthComponent {
   resetAuthForm = new FormGroup({});
 
   constructor(private router: Router, private resetService: ResetService, private route: ActivatedRoute) {
-
+   
     this.route.params.subscribe(params => {
       if (params['resetToken']) {
-        console.log(params['resetToken']);
         this.resetService.getResetPwd(params['resetToken'])
           .subscribe(result => {
+            
             if (result['code'] === 200) {
-              console.log(result['token']);
               localStorage.setItem('resetToken', result['token']);
               this.router.navigate(['resetPwd']);
             }

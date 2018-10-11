@@ -45,14 +45,12 @@ PwdNotMatching:boolean;
 
   //-------------------------------RESET FUNCTION----------------------------------
   resetPwd(resetPwdForm) {
-    console.log('here');
-    console.log(this.resetPwdForm.value, this.resetPwdForm.get('password'),
-     this.resetPwdForm.get('confirmPassword'));
+  
     this.resetService.resetPwd(resetPwdForm.value)
       .subscribe(result => {
         if (result['code'] === 200) {
-          console.log(result['token']);
           localStorage.removeItem('resetToken');
+          this.PwdNotMatching = false;
           this.router.navigate(['pwdResetDone']);
         }
         else if (result['code'] === 403) {
@@ -69,5 +67,6 @@ PwdNotMatching:boolean;
           throw error;
         }
       });
+
   }
 }

@@ -1,0 +1,240 @@
+.bg {
+    width: 1350px;    height: 64px;
+    background-color: #1d17bf;
+  }
+
+  .waves {
+    width: 110px;
+    height: 64px;
+    object-fit: fill;
+    float: left;
+  }
+
+  .plus-logo-white {
+    width: 80px;
+    height: 45px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    object-fit: contain;
+    float: left
+  }
+
+  ::ng-deep .tab_one .mat-tab-label-content {
+    width: 85px;
+    height: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    align-self: center;
+    letter-spacing: normal;
+    color:white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+
+
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: rgb(243, 139, 101);
+    height: 4px;
+}
+
+
+::ng-deep .tab_one .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-link:not(.mat-tab-disabled):focus,
+.mat-tab-group.mat-primary .mat-tab-label-active {
+  color:white;
+    
+}
+
+
+  .wel{
+    width: 1350px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+      background-color: #f2f2f2
+  }
+  .mask {
+    width: 1100px;
+    height: 90px;
+    border-radius: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Welcome {
+    width: 69px;
+    height: 19px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2d485f;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .Dionne-Chan-Zi-Ting {
+    width: 1000px;
+    height: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2d485f;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    float: left
+  }
+
+  .Account-Manager {
+    width: 120px;
+    height: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2d485f;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  /* .Content-to-be-review {
+    width: 88px;
+    height: 40px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #1d35df;
+     } */
+
+
+
+     .Dedicated-campaigns {
+        width: 418px;
+        height: 40px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 40px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.87;
+        letter-spacing: normal;
+        color: #2d485f;
+        margin-left: 100px;
+        margin-right: auto;
+      }
+      
+
+      .bg_white {
+        width: 1350px;    
+        height: 1314px;
+        background-color: #ffffff;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .same_margin  {
+          margin-left: 100px;
+          margin-right: 100px;
+      }
+
+      ::ng-deep .tab_two .mat-tab-label-content {
+        width: 85px;
+        height: 27px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        align-self: center;
+        letter-spacing: normal;
+        color:#1d35df;
+       
+      }
+    
+      ::ng-deep .mat-tab-group {
+        padding-top: 17px;
+          width: 800px;
+          float: left;
+      }
+    ::ng-deep  .mat-tab-label-active {
+      color:white;
+   }
+      .maskb {
+        width: 160px;
+        height: 25px;
+        border-radius: 30px;
+        background-color: #1d35df;
+        float: right; 
+          }
+    .Button-Text {
+            
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                  font-size: 16px;
+                  font-style: normal;
+                  font-stretch: normal;
+                  line-height: 1.25;
+                  letter-spacing: normal;
+                  text-align: center;
+                  color: #ffffff;
+                }
+                
+    .masklb {
+                  width: 60px;
+                  height: 25px;
+                  border-radius: 30px;
+                  background-color: #1d35df;
+                  float: right; 
+                
+                    }
+              .Button-Text {
+                      
+                            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-stretch: normal;
+                            line-height: 1.25;
+                            letter-spacing: normal;
+                            text-align: center;
+                            color: #ffffff;
+                          }
+
+                          table {
+                            width: 100%;
+                            padding-right: 10px;
+                          }
+                          .mat-cell{
+                            padding-right: 40px;
+                          }
+                          .mat-header-cell{
+                            color:black;
+                            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                            font-size: 16px;
+                            font-weight: bold;
+                            
+                          }
+                          th.mat-sort-header-sorted {
+                            color: black;
+                          }
+                         .dashbaordElements{
+                          width: 1300px;
+                          }
+                          

@@ -9,12 +9,14 @@ import { FormControl } from '@angular/forms';
 })
 export class EmailSentComponent {
   mailCheckWarning: boolean;
-  constructor() { }
+  constructor() {
+   }
   emailSentForm = new FormGroup({});
 
   emailSent() {
+    
 this.mailCheckWarning=true;
-  }
+  }  
 
 
 }

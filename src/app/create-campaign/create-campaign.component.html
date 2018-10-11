@@ -1,0 +1,231 @@
+<div class="bg">
+  <img src="assets/img/waves@2x.png" class="waves"> &nbsp;
+  <img src="assets/img/plus-logo-white@2x.png" class="plus-logo-white"> &nbsp;&nbsp;&nbsp;
+  <mat-tab-group class="tab_one">
+    <mat-tab class="tab_one_ink" label="Enterprise" class="Enterprise"> </mat-tab>
+    <mat-tab label="Admin for Standard" class="Admin-for-Standard"> </mat-tab>
+  </mat-tab-group>
+
+</div>
+
+
+<div *ngIf="campaignSuccess" >
+  
+    <br>
+    <mat-card class="cmp_card"> 
+      <span class="Campaign">Campaign</span>
+      <span class="Courts-Singapore-Co"><strong>{{cN}}</strong><br>{{toC}} Campaign<br>Start Date: {{abc}}<br>End Date: {{xyz}}</span>
+    </mat-card>
+</div>
+
+
+<div *ngIf="commsSuccess" >
+    
+      <br>
+      <mat-card class="cmp_card_comms"> 
+        <span class="Campaign">Comms</span>
+        <span class="Courts-Singapore-Co"><strong>{{cT}}</strong>&nbsp;{{ch}}<br>Launched Date: {{lD}}</span>
+      </mat-card>
+  </div>
+
+<br><br>
+  <mat-card>
+    <mat-tab-group class="tab_two">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>add_box</mat-icon>
+          Campaign
+        </ng-template>
+<!-- CAMPAIGN CREATION -->
+
+<br>
+<br>
+<br>
+
+<div>
+    <div class="Campaign-details">
+      Campaign details
+    </div>
+    <form [formGroup]="createCampaignForm" (ngSubmit)="createCampaign(createCampaignForm)">
+        <div *ngIf="invalidLogin" class="invalidLogin"><strong>Invalid Email/Password...</strong></div>
+        
+      <mat-form-field class="form-field" >
+        <mat-select placeholder=" Select Merchant" required formControlName="merchantName" [disabled]="!campaignTabStatus">
+            <div class="alert alert-danger" *ngIf=" merchantName?.touched && merchantName.invalid">
+                <div *ngIf="merchantName.errors.required">
+                    Merchant Name is
+                    <strong>required</strong>
+                </div>
+              </div>
+          <mat-option *ngFor="let merchant of merchants" [value]="merchant.value" required>
+            {{merchant.options}}
+          </mat-option>
+          
+        </mat-select>
+    
+      </mat-form-field>
+  
+      <br>
+      <mat-form-field class="form-field">
+        <input matInput type="text" placeholder="Campaign name" [(ngModel)]="value" required formControlName="campaignName">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        <div class="alert alert-danger" *ngIf="campaignName?.touched && campaignName.invalid">
+            <div *ngIf="campaignName.errors.required">
+                Merchant Name is
+                <strong>required</strong>
+            </div>
+          </div>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="Type of campaign" required formControlName="typeOfCampaign">
+          <mat-option *ngFor="let typeOfCampaign of typeOfCampaigns" [value]="typeOfCampaign.value">
+            {{typeOfCampaign.options}}
+          </mat-option>
+        </mat-select>
+        <div class="alert alert-danger" *ngIf="typeOfCampaign?.touched && typeOfCampaign.invalid">
+            <div *ngIf="typeOfCampaign.errors.required">
+                Merchant Name is
+                <strong>required</strong>
+            </div>
+          </div>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerStart" placeholder=" Start date" required formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+        <div class="alert alert-danger" *ngIf="startDate?.touched && startDate.invalid">
+            <div *ngIf="startDate.errors.required">
+                Merchant Name is
+                <strong>required</strong>
+            </div>
+          </div>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerEnd" placeholder="End date" required formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+        <div class="alert alert-danger" *ngIf="endDate?.touched && endDate.invalid">
+            <div *ngIf="endDate.errors.required">
+                Merchant Name is
+                <strong>required</strong>
+            </div>
+          </div>
+      </mat-form-field>
+      <br><br><br><br>
+  <hr>
+      <div class="Rectangle">
+        <button mat-flat-button color="primary" class="maskb Button-Text" type="submit"  [disabled]="createCampaignForm?.pending || createCampaignForm.invalid">
+          Save Campaign
+        </button>
+        <a routerLink="/dashboard" routerLinkActive="active" class="Exit">Exit</a>
+  
+      </div>
+    </form>
+  </div>
+
+
+<!-- CAMPAIGN CREATION COMPLETED-->
+      </mat-tab>
+
+
+      <mat-tab [disabled]="tabStatus">
+        <ng-template mat-tab-label>
+          <mat-icon>devices_other</mat-icon>
+          Comms
+        </ng-template>
+<br>
+        <div class="Campaign-details">
+            Comms details
+          </div>
+          <br>
+          <form [formGroup]="createCommsForm" (ngSubmit)="createComms(createCommsForm)">
+          <mat-form-field class="form-field">
+              <input matInput type="text" placeholder="Comms title" required formControlName="commsTitle">
+                           <div class="alert alert-danger" *ngIf="commsTitle?.touched && commsTitle.invalid">
+                  <div *ngIf="commsTitle.errors.required">
+                      commsTitle Name is
+                      <strong>required</strong>
+                  </div>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <input matInput type="text" placeholder="Channel" required formControlName="channel">
+                   <div class="alert alert-danger" *ngIf="channel?.touched && channel.invalid">
+                    <div *ngIf="channel.errors.required">
+                        Merchant Name is
+                        <strong>required</strong>
+                    </div>
+                  </div>
+              </mat-form-field>
+
+
+              <div class="Rectangle">
+                  <button mat-flat-button color="primary" class="maskb Button-Text" type="submit"  [disabled]="createCommsForm?.pending || createCommsForm.invalid">
+                    Save Comms
+                  </button>
+                  <a routerLink="/dashboard" routerLinkActive="active" class="Exit">Exit</a>
+            
+                </div>
+            </form>
+      </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <mat-icon>date_range</mat-icon>
+          Schedule
+        </ng-template>
+      </mat-tab>
+      <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <mat-icon>portrait</mat-icon>
+          Audience
+        </ng-template>
+      </mat-tab>
+      <!-- <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <mat-icon>settings_applications</mat-icon>
+          Mechanics
+        </ng-template>
+      </mat-tab>
+      <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <mat-icon>ballot</mat-icon>
+          Content
+        </ng-template>
+      </mat-tab> -->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>assignment</mat-icon>
+          Overview
+        </ng-template>
+        
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-card>
+  <br><br>
+ 

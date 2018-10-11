@@ -6,6 +6,7 @@ import { Http } from '@angular/http';
 import { LoginService } from './../services/login.service';
 import { error } from '@angular/compiler/src/util';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-http-login',
@@ -16,6 +17,7 @@ export class HttpLoginComponent {
   //-------------------------------DECLARATIONS----------------------------------
   invalidLogin: boolean;
   nonExistentUser: boolean;
+  currentUserEmail: string;
   //-----------------------FORM VALIDATION---------------------------------
   form = new FormGroup({
     userEmail: new FormControl('', [Validators.required,
@@ -41,28 +43,38 @@ export class HttpLoginComponent {
 
   //-------------------------------CONSTRUCTOR----------------------------------
 
-  constructor(private router:Router, private loginService: LoginService) {
-
+  constructor(private route: ActivatedRoute, private router: Router, private loginService: LoginService
+  ) {
+    // console.log('qweqweqwe '+this.loginService.isLoggedIn());
+    if (this.loginService.isLoggedIn())
+      this.router.navigate(['dashboard']);
   }
 
 
 
   //-------------------------------SIGNIN FUNCTION----------------------------------
   signIn(form) {
-    console.log(this.form.value, this.form.get('userEmail'), this.form.get('password'));
-
+  
     this.loginService.signIn(form.value)
       .subscribe(result => {
         if (result['code'] === 200) {
-          console.log(result['token']);
+          this.currentUserEmail = this.form.get('userEmail').value;
+
+          localStorage.setItem('token', result['token']);
+          // localStorage.setItem('user', this.currentUserEmail);
+
+          // this.loginService.setUserEmail(this.currentUserEmail);
+
           this.invalidLogin = false;
           this.nonExistentUser = false;
-          this.router.navigate(['welcome']);
+          console.log(this.route.snapshot.queryParamMap.get('returnUrl'));
+          let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          this.router.navigate([returnUrl||'dashboard']);
         }
         else if (result['code'] === 403) {
           this.nonExistentUser = true;
           this.invalidLogin = false;
-          
+
         }
         else {
           this.invalidLogin = true;

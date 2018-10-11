@@ -1,0 +1,106 @@
+<div class="bg">
+  <img src="assets/img/waves@2x.png" class="waves"> &nbsp;
+  <img src="assets/img/plus-logo-white@2x.png" class="plus-logo-white"> &nbsp;&nbsp;&nbsp;
+  <mat-tab-group class="tab_one">
+    <mat-tab class="tab_one_ink" label="Enterprise" class="Enterprise"> </mat-tab>
+    <mat-tab label="Admin for Standard" class="Admin-for-Standard"> </mat-tab>
+  </mat-tab-group>
+
+</div>
+<div class="wel">
+  <mat-card class="mask">
+    <div class="Welcome ">Welcome</div>
+
+    <div class="Dionne-Chan-Zi-Ting"> {{loginService.currentUser.name}}
+
+      <button mat-flat-button color="primary" class="masklb Button-Text" 
+      type="submit" routerLink="/login" routerLinkActive="active" (click)="logout()">
+        Logout
+       </button>
+
+    </div>
+
+    <div class="Account-Manager">
+      {{loginService.currentUser.designation}}</div>
+  </mat-card>
+  <br>
+
+  <div class="Dedicated-campaigns">
+    Dedicated campaigns
+  </div>
+</div>
+
+
+<br>
+
+<div class="bg_white">
+<div class="same_margin">
+  <mat-tab-group class="tab_two">
+    <mat-tab label="In Progress" > 
+        <br><br>
+        <div class="dashbaordElements">
+        <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            
+           <!-- Position Column -->
+           <ng-container matColumnDef="merchantName">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Merchant Name </th>
+             <td mat-cell *matCellDef="let element"> {{element.merchantName}} </td>
+           </ng-container>
+        
+           <!-- Weight Column -->
+           <ng-container matColumnDef="campaignName">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Campaign Name </th>
+             <td mat-cell *matCellDef="let element"> {{element.campaignName}} </td>
+           </ng-container>
+         
+           <!-- Symbol Column -->
+           <ng-container matColumnDef="typeOfCampaign">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Type Of Campaign </th>
+             <td mat-cell *matCellDef="let element"> {{element.typeOfCampaign}} </td>
+           </ng-container>
+         
+           <!-- Name Column -->
+           <ng-container matColumnDef="startDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+              </ng-container>
+      
+             
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let dashboardElement; columns: displayedColumns;"></tr>
+     </mat-table>
+         
+     
+    </div>
+
+
+    </mat-tab>
+    <mat-tab label="Launched" class="Launched"> </mat-tab>
+    <mat-tab label="Cancelled" class="Cancelled"> </mat-tab>
+  </mat-tab-group>
+  <button mat-flat-button color="primary" class="maskb Button-Text" type="submit" routerLink="/createCampaign" routerLinkActive="active">
+   Create Campaign
+  </button>
+</div>
+</div>
+
+
+
+
+<br>
+<p>
+
+
+  <!-- {{userEmail}} -->
+
+  <!-- {{loginService.currentUser.name}}'s Dashboard works!
+  <br> Designation: {{loginService.currentUser.designation}} -->
+</p>
+<!-- <div *ngIf="isLoggedIn" class="invalidLogin"> -->
+<!-- <a routerLink="/login" routerLinkActive="active" class="Forgot-password" (click)="logout()">Logout</a> -->
+<!-- </div> -->

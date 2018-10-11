@@ -15,7 +15,7 @@
 
 <mat-card>
   <form (ngSubmit)="resetPwd(resetPwdForm)" [formGroup]="resetPwdForm">
-    <div *ngIf="PwdNotMatching" class="invalidLogin">
+    <div *ngIf="PwdNotMatching" class="alert alert-danger">
       <strong>Password and Confirm password must match...</strong>
     </div>
     <mat-form-field appearance="outline">
@@ -40,7 +40,7 @@
             Password should be
             <strong>minimum {{password.errors.minlength.requiredLength}}</strong> characters
           </div>
-        <div *ngIf="password.errors.MatchPassword">
+        <div *ngIf="password.errors.MatchPassword"  class="alert alert-danger">
           Password and Confirm password must match....
         </div>
 

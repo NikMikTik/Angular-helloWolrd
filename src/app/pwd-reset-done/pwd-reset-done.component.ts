@@ -9,7 +9,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class PwdResetDoneComponent implements OnInit {
   proceedToLogin: boolean;
   
-  constructor() { }
+  constructor() {
+    
+   }
   pwdResetDoneForm = new FormGroup({});
 
   pwdResetDone() {
