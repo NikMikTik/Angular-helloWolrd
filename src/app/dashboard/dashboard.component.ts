@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit {
   //result;
   hey;
   dashboardElement:DashboardElement[] = [];
-  displayedColumns: string[] = ['merchantName', 'campaignName', 'typeOfCampaign', 'startDate','endDate'];
-  dataSource;
+  displayedColumns: string[] = ['merchantName', 'campaignName', 'typeOfCampaign', 'startDate','endDate','status'];
+  dataSource;src;
   isLoggedIn:boolean;
   constructor(private router: Router, private getAllCampaignService: GetAllCampaignService,private loginService: LoginService,private logoutService: LogoutService) {
     if (!this.loginService.isLoggedIn())
@@ -39,7 +39,10 @@ export class DashboardComponent implements OnInit {
       console.log(this.dashboardElement);
      this.dataSource = new MatTableDataSource(this.dashboardElement);
      this.dataSource.sort = this.sort;
-     
+    //  console.log("assets/img/"+result[5].imageUrl);
+    //  this.src="assets/img/"+result[5].imageUrl;
+    //  let reader = new FileReader();
+    //  let img=reader.readAsDataURL(result['image']);
  //   alert(result['merchantName']);
   }
       ,

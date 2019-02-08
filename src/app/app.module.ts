@@ -10,10 +10,11 @@ import { AuthGuard } from './guard/authGuard';
 import { LoginAuthGuard } from './guard/loginAuthGuard';
 import { LogoutService } from './services/logout.service';
 import { GetAllCampaignService } from './services/get-all-campaign.service';
-
+import { CommsService } from './services/comms.service';
 import {
   MatProgressSpinnerModule,
   MatTabsModule,
+  MatSortModule,
   MatCheckboxModule,
   MatButtonModule,
   MatMenuModule,
@@ -85,7 +86,8 @@ export const MY_FORMATS = {
 
   ],
   imports: [MatProgressSpinnerModule,
-    MatCheckboxModule,
+  
+  MatCheckboxModule,
     BrowserModule,
     MatTabsModule,
     FormsModule,
@@ -99,6 +101,7 @@ export const MY_FORMATS = {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    MatSortModule,
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
@@ -147,6 +150,7 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    MatSortModule,
     MatOptionModule,
     MatTableModule,
     MatSlideToggleModule
@@ -160,6 +164,7 @@ export const MY_FORMATS = {
     ResetService,
     LogoutService,
     CampaignService,
+    CommsService,
     ErrorStateMatcher,
     { provide: ErrorHandler, useClass: AppErrorhandler },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },

@@ -61,6 +61,15 @@ export class DataService {
     }).catch(this.handleError);
   }
 
+  createComms(createCommsForm) {
+    console.log("herererer erererere ererere");
+   console.log(createCommsForm);
+    return this.http.post(this.url, JSON.stringify(createCommsForm), this.initialisedHeader(true)).map(response => {
+      let result = response.json();
+      return result;
+    }).catch(this.handleError);
+  }
+
   forgotPwd(userEmail) {
     return this.http.post(this.url, JSON.stringify(userEmail), this.initialisedResetHeader(false))
       .map(response => {

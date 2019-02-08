@@ -8,26 +8,21 @@
 
 </div>
 
-
+<div class="card-success">
 <div *ngIf="campaignSuccess" >
-  
-    <br>
     <mat-card class="cmp_card"> 
       <span class="Campaign">Campaign</span>
       <span class="Courts-Singapore-Co"><strong>{{cN}}</strong><br>{{toC}} Campaign<br>Start Date: {{abc}}<br>End Date: {{xyz}}</span>
     </mat-card>
 </div>
-
-
-<div *ngIf="commsSuccess" >
-    
-      <br>
-      <mat-card class="cmp_card_comms"> 
+<br>
+<div *ngIf="commsSuccess">
+        <mat-card class="cmp_card_comms"> 
         <span class="Campaign">Comms</span>
         <span class="Courts-Singapore-Co"><strong>{{cT}}</strong>&nbsp;{{ch}}<br>Launched Date: {{lD}}</span>
       </mat-card>
   </div>
-
+</div>
 <br><br>
   <mat-card>
     <mat-tab-group class="tab_two">
@@ -133,7 +128,7 @@
       </mat-tab>
 
 
-      <mat-tab [disabled]="tabStatus">
+      <mat-tab [disabled]="campaignTabStatus">
         <ng-template mat-tab-label>
           <mat-icon>devices_other</mat-icon>
           Comms
@@ -164,6 +159,7 @@
                   </div>
               </mat-form-field>
 
+<input type="hidden" name="campaignName" ng-value="createCampaignForm.campaignName" [(ngModel)]="value" formControlName="campaignName">
 
               <div class="Rectangle">
                   <button mat-flat-button color="primary" class="maskb Button-Text" type="submit"  [disabled]="createCommsForm?.pending || createCommsForm.invalid">
